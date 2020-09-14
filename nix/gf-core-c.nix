@@ -7,7 +7,7 @@
 mkDerivation {
   pname = "gf";
   version = "3.10.4";
-  src = ./.;
+  src = ./..;
   isLibrary = true;
   isExecutable = true;
   enableSeparateDataOutput = true;
