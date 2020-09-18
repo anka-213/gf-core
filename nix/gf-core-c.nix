@@ -2,7 +2,7 @@
 , containers, directory, exceptions, fail, filepath, ghc-prim
 , happy, haskeline, httpd-shed, json, mtl, network, network-uri
 , parallel, pretty, process, random, stdenv, terminfo, time
-, transformers-compat, unix, utf8-string
+, transformers-compat, unix, utf8-string, gf-pgf
 }:
 mkDerivation {
   pname = "gf";
