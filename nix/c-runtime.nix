@@ -1,4 +1,4 @@
-{stdenv, autoreconfHook }:
+{ stdenv, autoreconfHook }:
 stdenv.mkDerivation {
   name = "gf-c-runtime-0.0.1";
   src = ../src/runtime/c;
