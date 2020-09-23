@@ -1,7 +1,7 @@
 let
-  config = {
-    packageOverrides = pkgs: {
-      haskellPackages = pkgs.haskellPackages.override {
+  myOverlay = 
+     pkgs: oldpkgs: {
+      haskellPackages = oldpkgs.haskellPackages.override {
         overrides = haskellPackagesNew: haskellPackagesOld: {
           # site = haskellPackagesNew.callPackage ./site.nix {};
           # gf-core = (haskellPackagesNew.callPackage ./gf-core.nix {}).overrideAttrs(old: {
@@ -14,8 +14,8 @@ let
       };
       gf-pgf = pkgs.callPackage ./c-runtime.nix {};
     };
-  };
-  pkgs = import <nixpkgs> { inherit config; overlays = []; };
+  
+  pkgs = import <nixpkgs> { overlays = [ myOverlay]; };
 # in pkgs.haskellPackages.gf-core
 # in pkgs.asdfasdf
 in {
