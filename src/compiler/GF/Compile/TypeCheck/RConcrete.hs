@@ -85,7 +85,8 @@ inferLType gr g trm = case trm of
    Q ident -> checks [
      termWith trm $ lookupResType gr ident >>= computeLType gr g
      ,
-     lookupResDef gr ident >>= inferLType gr g
+    --  lookupResDef gr ident >>= inferLType gr g
+     lookupResDef gr ident >>= \trm' -> if trm' == trm then error ("loop in definition of: " ++ show trm) else inferLType gr g trm'
      ,
      checkError ("cannot infer type of constant" <+> ppTerm Unqualified 0 trm)
      ]
