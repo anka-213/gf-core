@@ -254,8 +254,8 @@ After you have compiled GF you need to install the executable and libraries
 to make the system usable.
 
 ```
-$ cabal copy
-$ cabal register
+$ cabal v1-copy
+$ cabal v1-register
 ```
 
 This command installs the GF compiler for a single user, in the standard
