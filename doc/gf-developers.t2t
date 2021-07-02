@@ -218,36 +218,6 @@ causing problems for developers with Cabal<1.20. You can disable this
 by editing the last few lines in ``WebSetup.hs``.
 
 
-==== Partial builds ====
-
-**NOTE**: The following doesn't work with recent versions of ``cabal``.
-%% // TH 2015-06-22
-
-Sometimes you just want to work on the GF compiler and don't want to
-recompile the resource library after each change. In this case use
-this extended command:
-
-```
-$ cabal build rgl-none
-```
-
-The resource library could also be compiled in two modes: with present
-tense only and with all tenses. By default it is compiled with all
-tenses. If you want to use the library with only present tense you can
-compile it in this special mode with the command:
-
-```
-$ cabal build present
-```
-
-You could also control which languages you want to be recompiled by
-adding the option ``langs=list``. For example the following command
-will compile only the English and the Swedish language:
-
-```
-$ cabal build langs=Eng,Swe
-```
-
 === Install ===
 
 After you have compiled GF you need to install the executable and libraries
@@ -316,19 +286,12 @@ You can check with ``ghc-pkg list gf`` that it is gone.
 == Compilation with make ==
 
 If you feel more comfortable with Makefiles then there is a thin Makefile
-wrapper arround Cabal for you. If you just type:
+wrapper around Stack/Cabal for you. If you just type:
 ```
 $ make
 ```
 the configuration phase will be run automatically if needed and after that
 the sources will be compiled.
-
-%% cabal build rgl-none does not work with recent versions of Cabal
-%If you don't want to compile the resource library
-%every time then you can use:
-%```
-%$ make gf
-%```
 
 For installation use:
 ```
@@ -338,10 +301,6 @@ For cleaning:
 ```
 $ make clean
 ```
-%and to build source distribution archive run:
-%```
-%$ make sdist
-%```
 
 == Compiling GF with C run-time system support ==
 
